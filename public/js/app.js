@@ -171,11 +171,13 @@ function createVoteButtons(element, trackData = null) {
 }
 
 async function castVote(vote, songID) {
-  const response = await fetch(`http://127.0.0.1:3000/vote/${vote}:${songID}`);
+  const response = await fetch(
+    `https://wd2-toptracks.onrender.com//vote/${vote}:${songID}`
+  );
 }
 
 async function getTrackRank(trackInfo) {
-  const response = await fetch("http://127.0.0.1:3000/all-songs");
+  const response = await fetch("https://wd2-toptracks.onrender.com//all-songs");
   const allTracks = await response.json();
 
   const rank = allTracks.findIndex((currentTrack) => {
@@ -343,7 +345,7 @@ function createTrackItem(trackInfo, wrapperElem = "li", addedClasses = []) {
 }
 
 async function displayChart() {
-  const response = await fetch("http://127.0.0.1:3000/all-songs");
+  const response = await fetch("https://wd2-toptracks.onrender.com//all-songs");
   const trackData = await response.json();
   const chart = document.querySelector(".ranking-chart");
   const chartClasses = ["ranking-module", "fade-in"];

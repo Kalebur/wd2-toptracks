@@ -114,8 +114,7 @@ function createVoteButtons(element, trackData = null) {
       if (iconDownvote.classList.contains("selected")) {
         iconDownvote.classList.remove("selected");
         songCount += 2;
-        if (element.getAttribute("data-pv") === "true")
-          castVote("like", trackID);
+        castVote("like", trackID);
       } else {
         songCount++;
       }
@@ -140,8 +139,7 @@ function createVoteButtons(element, trackData = null) {
 
       if (iconUpvote.classList.contains("selected")) {
         iconUpvote.classList.remove("selected");
-        if (element.getAttribute("data-pv") === "true")
-          castVote("dislike", trackID);
+        castVote("dislike", trackID);
         songCount -= 2;
       } else {
         songCount--;

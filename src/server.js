@@ -8,7 +8,6 @@ const port = 3000;
 
 const toptracks = require("./toptracks");
 const db = require("./database");
-const getSongInfo = require("./database");
 
 app.use("/", express.static("public"));
 
@@ -34,7 +33,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 const limiter = rateLimit({
   windowMS: 1000,

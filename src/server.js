@@ -62,12 +62,8 @@ app.get("/all-songs", (req, res) => {
 });
 
 app.get("/vote/:vote", (req, res) => {
-  if (!whitelist.includes(req.hostname)) {
-    res.send("Not Authorized.");
-  } else {
-    const [vote, songID] = req.params.vote.split(":");
-    db.updateVotes(songID, vote, res);
-  }
+  const [vote, songID] = req.params.vote.split(":");
+  db.updateVotes(songID, vote, res);
 });
 
 //test route
